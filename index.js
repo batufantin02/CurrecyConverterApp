@@ -23,7 +23,7 @@ const exRateTxt = document.querySelector("form .result");
 //Función para obtener el tipo de cambio de api
 async function getExchangeRate() {
     const amountVal = amount.value || 1;
-    exRateTxt.innerText = "Getting exchange rate...";
+    exRateTxt.innerText = "Obteniendo tipo de cambio...";
     try {
         const response = await fetch(`https://v6.exchangerate-api.com/v6/51bff53537c3dab9c2811254/latest/${fromCur.value}`);
         const result = await response.json();
@@ -31,7 +31,7 @@ async function getExchangeRate() {
         const totalExRate = (amountVal * exchangeRate).toFixed(2);
         exRateTxt.innerText = `${amountVal} ${fromCur.value} = ${totalExRate} ${toCur.value}`;
     } catch (error) {
-        exRateTxt.innerText = "Something went wrong...";
+        exRateTxt.innerText = "Algo salió mal...";
     }
 }
 
